@@ -15,7 +15,10 @@ const validateToken = (req, res, next) => {
         if(err){
             res.status(403).json({
                 success: false,
-                data: 'Invalid Token'
+                data: {
+                    type: 'predefined',
+                    error: 'Invalid Token/ Session expired. Please Login Again.'
+                }
             });
         }
         else{

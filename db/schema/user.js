@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
     pwd: String,
     dp: String,
     survey: {
-        name: String,
         dob: String,
         gender: String,
         country: String
@@ -16,7 +15,8 @@ const userSchema = new mongoose.Schema({
     chat_requests: Array,
     chat_dms: Array,
     current_feed: Array,
-    is_admin: Boolean
+    is_admin: Boolean,
+    survey_opt: Boolean
 }, {
     collection: 'user'
 })
