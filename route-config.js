@@ -33,7 +33,7 @@ const routeConfig = {
                 }
             },
             media: {
-                indexRoute: '/profile',
+                indexRoute: '/media',
                 nestedRoutes: {
                     get: '/get'
                 }

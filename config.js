@@ -9,10 +9,11 @@ const config = {
     ociTenancy: process.env.OCI_TENANCY,
     ociUser: process.env.OCI_USER,
     ociFingerprint: process.env.OCI_FINGERPRINT,
-    ociPrivatekey: process.env.OCI_PRIVATE_KEY,
     ociRegion: process.env.OCI_REGION,
     ociNamespace: process.env.OCI_NAMESPACE,
-    ociBucketName: process.env.OCI_BUCKET_NAME
+    ociBucketName: process.env.OCI_BUCKET_NAME,
+    ociServiceName: process.env.OCI_SERVICE_NAME,
+    ociSecondLevel: process.env.OCI_SECOND_LEVEL
 }
 
 module.exports = config

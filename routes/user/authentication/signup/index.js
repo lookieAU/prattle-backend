@@ -12,7 +12,8 @@ Router.post(routeConfig.user.nestedRoutes.authentication.nestedRoutes.signup, as
             email: email,
             timestamp_creation: new Date(),
             pwd: pwd,
-            survey_opt: true
+            survey_opt: true,
+            dp: 'user/default_dp.jpg'
         });
         res.status(200).json({
             success: true,

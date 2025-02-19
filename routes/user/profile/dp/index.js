@@ -5,13 +5,13 @@ const { validateToken } = require('../../../../utils/token');
 const db = require('../../../../db/db');
 
 const Router = require('express').Router();
-const oci = new OCI();
 const upload = multer({ memory: true });
 const user = db.userModel;
 
 Router.post(routeConfig.user.nestedRoutes.profile.nestedRoutes.dp, validateToken,
     upload.single('file'), async(req, res) => {
     try{
+        const oci = new OCI();
         if(!req.file){
             throw new Error({
                 type: 'predefined',

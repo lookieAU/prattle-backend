@@ -3,11 +3,11 @@ const OCI = require('../../../../utils/oci');
 const { validateToken } = require('../../../../utils/token');
 
 const Router = require('express').Router();
-const oci = new OCI();
 
-Router.get(routeConfig.user.nestedRoutes.media.nestedRoutes.get, validateToken, async (req, res) => {
+Router.get(routeConfig.user.nestedRoutes.media.nestedRoutes.get, async (req, res) => {
     try{
         const {filePath} = req.query;
+        const oci = new OCI();
         const response = await oci.getFileUrl(filePath);
         if(response.success){
             res.status(200).json({
@@ -23,9 +23,12 @@ Router.get(routeConfig.user.nestedRoutes.media.nestedRoutes.get, validateToken, 
         }
     }
     catch(e){
+        console.log(e);
         res.status(400).json({
             success: false,
             data: e
         });
     }
 })
+
+module.exports = Router;
