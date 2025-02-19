@@ -11,7 +11,7 @@ class OCI{
             region: config.ociRegion
         };
         this.client = new oci.objectstorage({
-            authenticationDetailsProvider: new oci.SimpleAuthenticationDetailsProvider(ociConfig)
+            authenticationDetailsProvider: new oci.SimpleAuthenticationDetailsProvider(this.ociConfig)
         });
     }
 
