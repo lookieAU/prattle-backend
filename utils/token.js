@@ -10,22 +10,33 @@ const generateToken = (payload) => {
 }
 
 const validateToken = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    jwt.verify(authHeader.split(" ")[1], config.secretToken, (err, payload) => {
-        if(err){
-            res.status(403).json({
-                success: false,
-                data: {
-                    type: 'predefined',
-                    error: 'Invalid Token/ Session expired. Please Login Again.'
-                }
-            });
-        }
-        else{
-            req.user = payload;
-            next();
-        }
-    })
+    try{
+        const authHeader = req.headers.authorization;
+        jwt.verify(authHeader.split(" ")[1], config.secretToken, (err, payload) => {
+            if(err){
+                res.status(403).json({
+                    success: false,
+                    data: {
+                        type: 'predefined',
+                        error: 'Invalid Token/ Session expired. Please Login Again.'
+                    }
+                });
+            }
+            else{
+                req.user = payload;
+                next();
+            }
+        })
+    }
+    catch(e){
+        res.status(403).json({
+            success: false,
+            data: {
+                type: 'predefined',
+                error: 'Invalid Token/ Session expired. Please Login Again.'
+            }
+        });
+    }
 }
 
 module.exports = {
