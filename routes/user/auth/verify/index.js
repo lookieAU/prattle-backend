@@ -5,7 +5,7 @@ const Router = require('express').Router();
 
 const emailDb = db.emailModel;
 
-Router.post(routeConfig.user.nestedRoutes.authentication.nestedRoutes.verify, async(req, res) => {
+Router.post('/', async(req, res) => {
     try{
         const {email, code} = req.body;
         const emailRes = await emailDb.findOne({

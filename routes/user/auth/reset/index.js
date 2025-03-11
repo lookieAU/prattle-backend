@@ -1,17 +1,21 @@
+const db = require('../../../../db/db');
 const routeConfig = require('../../../../route-config');
-const { validateToken } = require('../../../../utils/token');
 
 const Router = require('express').Router();
+const user = db.userModel;
 
-Router.get('/', validateToken, async(req, res) => {
+Router.post('/', async(req, res) => {
     try{
-        const {id} = req.user;
-        const dbRes = await user.findOne({
-            _id: id
+        const {email, pwd} = req.body;
+        await user.updateOne({
+            email: email
+        }, {
+            $set: {
+                pwd: pwd
+            }
         });
         res.status(200).json({
-            success: true,
-            data: dbRes
+            success: true
         });
     }
     catch(e){
@@ -20,6 +24,6 @@ Router.get('/', validateToken, async(req, res) => {
             data: e
         });
     }
-})
+});
 
 module.exports = Router;

@@ -1,17 +1,13 @@
+const config = require('../../../../config');
 const routeConfig = require('../../../../route-config');
-const { validateToken } = require('../../../../utils/token');
 
 const Router = require('express').Router();
 
-Router.get('/', validateToken, async(req, res) => {
+Router.get('/', async(req, res) => {
     try{
-        const {id} = req.user;
-        const dbRes = await user.findOne({
-            _id: id
-        });
         res.status(200).json({
             success: true,
-            data: dbRes
+            data: config.dmca
         });
     }
     catch(e){

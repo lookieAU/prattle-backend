@@ -6,7 +6,7 @@ const Router = require('express').Router();
 
 const user = db.userModel;
 
-Router.post(routeConfig.user.nestedRoutes.addons.nestedRoutes.survey, validateToken, async(req, res) => {
+Router.post('/', validateToken, async(req, res) => {
     try{
         const {gender, dob, country} = req.body;
         const {id} = req.user;

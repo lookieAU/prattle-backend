@@ -4,7 +4,7 @@ const routeConfig = require('../../../../route-config');
 const Router = require('express').Router();
 const user = db.userModel;
 
-Router.get(routeConfig.user.nestedRoutes.authentication.nestedRoutes.check, async(req, res) => {
+Router.get('/', async(req, res) => {
     try{
         const {id} = req.query;
         const dbRes = await user.findOne({

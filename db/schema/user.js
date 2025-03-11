@@ -12,11 +12,13 @@ const userSchema = new mongoose.Schema({
         country: String
     },
     prat_ids: Array,
+    faction_ids: Array,
     chat_requests: Array,
     chat_dms: Array,
     current_feed: Array,
     is_admin: Boolean,
-    survey_opt: Boolean
+    survey_opt: Boolean,
+    tos_consent: Boolean
 }, {
     collection: 'user'
 })

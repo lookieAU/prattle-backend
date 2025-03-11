@@ -6,7 +6,7 @@ const Router = require('express').Router();
 
 const user = db.userModel;
 
-Router.get(routeConfig.user.nestedRoutes.addons.nestedRoutes.optout, validateToken, async(req, res) => {
+Router.get('/', validateToken, async(req, res) => {
     try{
         const {id} = req.user;
         await user.updateOne({

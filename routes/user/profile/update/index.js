@@ -5,7 +5,7 @@ const { validateToken } = require('../../../../utils/token');
 const Router = require('express').Router();
 const user = db.userModel;
 
-Router.post(routeConfig.user.nestedRoutes.profile.nestedRoutes.update, validateToken, async(req, res) => {
+Router.post('/', validateToken, async(req, res) => {
     try{
         const {newId, email} = req.body;
         await user.updateOne({

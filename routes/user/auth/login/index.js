@@ -5,7 +5,7 @@ const { generateToken } = require('../../../../utils/token');
 const Router = require('express').Router();
 const user = db.userModel;
 
-Router.post(routeConfig.user.nestedRoutes.authentication.nestedRoutes.login, async(req, res) => {
+Router.post('/', async(req, res) => {
     try{
         const {id, pwd} = req.body;
         const dbEmailRes = await user.findOne({

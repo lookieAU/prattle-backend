@@ -6,13 +6,15 @@ const factionSchema = require('./schema/faction');
 const chatSchema = require('./schema/chat');
 const emailSchema = require('./schema/email');
 const statusSchema = require('./schema/status');
+const thoughtSchema = require('./schema/thought');
 
 const userModel = mongoose.model('user', userSchema);
 const pratModel = mongoose.model('prat', pratSchema);
 const factionModel = mongoose.model('faction', factionSchema);
 const chatModel = mongoose.model('chat', chatSchema);
 const emailModel = mongoose.model('email', emailSchema);
-const statusModel = mongoose.model('status', statusSchema)
+const statusModel = mongoose.model('status', statusSchema);
+const thoughtModel = mongoose.model('thought', thoughtSchema);
 
 const connect = async () => {
     try{
@@ -32,5 +34,6 @@ module.exports = {
     factionModel: factionModel,
     chatModel: chatModel,
     emailModel: emailModel,
-    statusModel: statusModel
+    statusModel: statusModel,
+    thoughtModel: thoughtModel
 }

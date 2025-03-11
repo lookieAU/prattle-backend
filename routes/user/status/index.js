@@ -5,7 +5,7 @@ const Router = require('express').Router();
 
 const status = db.statusModel;
 
-Router.get(routeConfig.user.nestedRoutes.status, async(req, res) => {
+Router.get('/', async(req, res) => {
     try{
         const dbRes = await status.findOne({
             from: 'admin'

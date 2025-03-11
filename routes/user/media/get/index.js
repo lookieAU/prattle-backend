@@ -4,7 +4,7 @@ const { validateToken } = require('../../../../utils/token');
 
 const Router = require('express').Router();
 
-Router.get(routeConfig.user.nestedRoutes.media.nestedRoutes.get, validateToken, async (req, res) => {
+Router.get('/', validateToken, async (req, res) => {
     try{
         const {filePath} = req.query;
         const oci = new OCI();

@@ -8,7 +8,7 @@ const Router = require('express').Router();
 const upload = multer({ memory: true });
 const user = db.userModel;
 
-Router.post(routeConfig.user.nestedRoutes.profile.nestedRoutes.dp, validateToken,
+Router.post('/', validateToken,
     upload.single('file'), async(req, res) => {
     try{
         const oci = new OCI();

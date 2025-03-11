@@ -7,7 +7,7 @@ const user = db.userModel;
 const chat = db.chatModel;
 const prat = db.pratModel;
 
-Router.delete(routeConfig.user.nestedRoutes.profile.nestedRoutes.delete, validateToken, async(req, res) => {
+Router.delete('/', validateToken, async(req, res) => {
     try{
         const {id} = req.user;
         await user.deleteOne({
